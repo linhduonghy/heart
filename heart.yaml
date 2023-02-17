@@ -19,7 +19,7 @@ spec:
       - name: heart
         image: linhduonghy/heart:latest
         ports:
-        - containerPort: 29911
+        - containerPort: 80
         env:
         - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
           valueFrom: 
@@ -38,4 +38,4 @@ spec:
   ports:
     - protocol: TCP
       port: 29911
-      targetPort: 29911
+      targetPort: 80
