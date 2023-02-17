@@ -34,7 +34,7 @@ metadata:
 spec:
   selector:
     app: heart
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 29911
