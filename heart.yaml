@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: heart
+  labels:
+    app: heart
+    namespace: eurekaserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: heart
+  template:
+    metadata:
+      labels:
+        app: heart
+    spec:
+      containers:
+      - name: heart
+        image: linhduonghy/heart:1
+        ports:
+        - containerPort: 29911
+        env:
+        - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+          valueFrom: 
+            configMapKeyRef:
+              name: dangngocsoncntt-configmap
+              key: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: heart-service
+spec:
+  selector:
+    app: heart
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 29911
+      targetPort: 29911
