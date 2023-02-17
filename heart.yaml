@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: heart
-        image: linhduonghy/heart:1
+        image: linhduonghy/heart:latest
         ports:
         - containerPort: 29911
         env:
