@@ -29,7 +29,7 @@ pipeline {
                     // sh "pwd"
                     sh '''
                         #!/bin/bash
-                        /usr/local/bin/argocd app create heart --upsert --repo https://github.com/linhduonghy/heart.git --path . --dest-namespace eurekaserver --dest-server https://kubernetes.default.svc --directory-recurse
+                        /usr/local/bin/argocd app create heart --upsert --sync-policy automated --sync-option CreateNamespace=true --repo https://github.com/linhduonghy/heart.git --path . --dest-namespace eurekaserver --dest-server https://kubernetes.default.svc --directory-recurse
                     '''
                 }
             }
