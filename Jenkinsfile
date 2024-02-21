@@ -7,12 +7,6 @@ pipeline {
             }
         }
 
-        stage("Build") {
-            steps {
-                echo "Building the application ... "
-            }
-        }
-
         stage("Test") {
             steps {
                 echo "Testing the application ... "
